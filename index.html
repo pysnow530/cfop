@@ -150,7 +150,7 @@
          * </td>
          */
         // 生成示例及同色型态
-        document.getElementById('container').appendChild(appendChildren(
+        document.getElementById(containerId).appendChild(appendChildren(
             createElementWithAttrs('tr', []), [
                 appendChildren(
                     createElementWithAttrs('td', [['rowspan', 2]]), [
@@ -253,11 +253,6 @@
                 formulas.diff.forEach((formula, idx) => setFormula(`${name}-diff-${idx + 1}-formula`, formula))
             }
         )
-        // setFormula('up-white-same-1-formula', formulaMap['up-white']['same'][0])
-        // setFormula('up-white-same-2-formula', formulaMap['up-white']['same'][1])
-        // setFormula('up-white-same-3-formula', formulaMap['up-white']['same'][2])
-        // setFormula('up-white-same-4-formula', formulaMap['up-white']['same'][3])
-        // setFormula('up-white-same-5-formula', formulaMap['up-white']['same'][4])
     }
 
     const main = () => {
