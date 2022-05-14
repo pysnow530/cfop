@@ -210,7 +210,54 @@
     }
 
     const renderFormula = () => {
-        setFormula('up-white-same-1-formula', "RUR'U'\nRU")
+        const formulaMap = [
+            {
+                name: 'up-white', formulas: {
+                    'same': ["F'U2F\nRU'2R'\nU2RU'R\n*", "U2RUR'\nURU'R'\n*", "URU'2R'\nURU'R'", "RU'2R'\nU'RUR'", "RUR'U2R\nRUR'\n*"],
+                    'diff': ["y'R'U2RU\nR'U'R", "y'U'R'U2R\nU'R'UR", "y'U2R'U'R\nU'R'UR\n*", "RU2R'\ny'R'U2R\nU'2R'UR\n*", "RU'R'Uy'R'UR"],
+                }
+            },
+            {
+                name: 'up-blue', formulas: {
+                    'same': ["F'UF\nU2RUR'\n*", "U'RU'2R'\nU2RU'R'", "U'RUR'\nU2RU'R'\n*", "URU'R'", "U'RU'R'\nU2RU'R'"],
+                    'diff': ["y'RURU'\nR'U2RU'2R'UR\n*", "y'R'U'R", "y'UR'U'R\nU'R'U'R", "U'RU'2R'\ny'R'U'R\n*", "U'RUR'Uy'R'U'R"],
+                }
+            },
+            {
+                name: 'up-red', formulas: {
+                    'same': ["UF'U2F'U'\nRUR'\n*", "U'RUR'U\nRUR'", "RUR'", "U'RU'R'\nURUR'", "U'RU'2R'U\nRUR'"],
+                    'diff': ["y'U'R'UR", "Uy'R'U'R\nU'2R'UR", "Uy'R'U2R\nU'2R'UR\n*", "RU'R'\nU2y'R'U'R", "U2F'\nUF\nURUR'\n*"],
+                }
+            },
+            {
+                name: 'down-red', formulas: {
+                    'same': ["", "", "", "RU'R'\nURU'R'", "RU'R'\nU'RU'R'\nU2RU'R'\n*"],
+                    'diff': ["Uy'\nR'U2RU2R'U'R\n*", "", "", "", "RU'R'\nU'RU'R'\nU'y'R'U'R\n*"],
+                }
+            },
+            {
+                name: 'down-white', formulas: {
+                    'same': ["", "", "", "RU'2R'\nURU'2R'\nU2RU'R'\n*", ""],
+                    'diff': ["URUR'U'\ny'R'U'R'\n*", "", "", "", "RU'R'U\ny'R'U2R\nU2R'UR"],
+                }
+            },
+            {
+                name: 'down-blue', formulas: {
+                    'same': ["", "", "", "RUR'U'\nRUR'", "RU'R'U\nRU2R'\nURU'R'"],
+                    'diff': ["RUR'U2\ny'R'UR\n*", "", "", "", "RU'R'U2\ny'R'U'R\nU'R'UR\n*"],
+                }
+            }
+        ]
+        formulaMap.forEach(({name, formulas}) => {
+                formulas.same.forEach((formula, idx) => setFormula(`${name}-same-${idx + 1}-formula`, formula))
+                formulas.diff.forEach((formula, idx) => setFormula(`${name}-diff-${idx + 1}-formula`, formula))
+            }
+        )
+        // setFormula('up-white-same-1-formula', formulaMap['up-white']['same'][0])
+        // setFormula('up-white-same-2-formula', formulaMap['up-white']['same'][1])
+        // setFormula('up-white-same-3-formula', formulaMap['up-white']['same'][2])
+        // setFormula('up-white-same-4-formula', formulaMap['up-white']['same'][3])
+        // setFormula('up-white-same-5-formula', formulaMap['up-white']['same'][4])
     }
 
     const main = () => {
@@ -220,7 +267,6 @@
     }
 
     main()
-
 </script>
 </body>
 </html>
