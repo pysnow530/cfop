@@ -186,28 +186,40 @@
         ))
     })
 
-    const renderTable = () => {
+    const renderDemo = () => {
+        const ignores = [/down-\w+-same-[123]/, /down-\w+-diff-[234]/, /down-white-same-5/]
+
         cornerList.forEach(({name, colorMap}) => {
             // 画左侧的角块示意图
             drawFDemo(name, colorMap)
 
             // 画角块对应的十种棱块型态
-            sameEdgeList.forEach((edgeItem) => {
-                drawFDemo(`${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap})
-            })
-            diffEdgeList.forEach((edgeItem) => {
-                drawFDemo(`${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap})
-            })
+            sameEdgeList.forEach((edgeItem) => drawFDemo(
+                `${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap},
+                ignores.filter((reIgnore) => `${name}-${edgeItem.name}`.match(reIgnore)).length > 0
+            ))
+            diffEdgeList.forEach((edgeItem) => drawFDemo(
+                `${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap},
+                ignores.filter((reIgnore) => `${name}-${edgeItem.name}`.match(reIgnore)).length > 0
+            ))
         })
     }
-
-    generateTable('container')
-    renderTable()
 
     const setFormula = (divId, formula) => {
         document.getElementById(divId).innerText = formula
     }
-    setFormula('up-white-same-1-formula', "RUR'U'\nRU")
+
+    const renderFormula = () => {
+        setFormula('up-white-same-1-formula', "RUR'U'\nRU")
+    }
+
+    const main = () => {
+        generateTable('container')
+        renderDemo()
+        renderFormula()
+    }
+
+    main()
 
 </script>
 </body>
