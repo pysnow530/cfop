@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cfop</title>
+    <style>
+        table, th, td {
+            border: 2px solid #02a7e7;
+            border-collapse: collapse;
+            padding: 5px 15px;
+        }
+
+        .formula-parent {
+            height: 100px;
+            float: right;
+            margin-left: 10px;
+            display: table;
+        }
+
+        .formula {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tbody id="container">
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="up-white"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-formula">
+                </div>
+            </div>
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="up-white-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-white-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-white-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="up-red"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="up-red-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-red-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-red-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="up-blue"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="up-blue-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="up-blue-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="up-blue-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="down-white"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="down-white-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-white-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-white-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="down-red"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="down-red-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-red-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-red-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <canvas width="100" height="100" id="down-blue"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-same-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-same-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-same-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-same-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-same-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-same-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-same-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-same-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-same-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-same-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <canvas width="100" height="100" id="down-blue-diff-1"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-diff-1-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-diff-2"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-diff-2-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-diff-3"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-diff-3-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-diff-4"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-diff-4-formula">
+                </div>
+            </div>
+
+        </td>
+        <td>
+            <canvas width="100" height="100" id="down-blue-diff-5"></canvas>
+            <div style="height: 100px; float: right; margin-left: 10px; display: table">
+                <div style="display: table-cell; vertical-align: middle" id="down-blue-diff-5-formula">
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    const CANVAS_WIDTH = 100
+
+    const COLOR_GRAY = '#c8c8ca'
+    const COLOR_WHITE = '#fcffff'
+    const COLOR_BLUE = '#036fba'
+    const COLOR_RED = '#e60410'
+
+    const DEFAULT_COLOR_MAP = {
+        'p1_p3_1_1': COLOR_BLUE, 'p1_p3_1_2': COLOR_BLUE, 'p1_p3_2_1': COLOR_BLUE, 'p1_p3_2_2': COLOR_BLUE,
+        'p2_p3_1_1': COLOR_RED, 'p2_p3_1_2': COLOR_RED, 'p2_p3_2_1': COLOR_RED, 'p2_p3_2_2': COLOR_RED,
+    }
+    const DEFAULT_UP_WHITE = {'p1_p2_0_0': COLOR_WHITE, 'p1_p3_0_0': COLOR_RED, 'p2_p3_0_0': COLOR_BLUE}
+    const DEFAULT_UP_RED = {'p1_p2_0_0': COLOR_RED, 'p1_p3_0_0': COLOR_BLUE, 'p2_p3_0_0': COLOR_WHITE}
+    const DEFAULT_UP_BLUE = {'p1_p2_0_0': COLOR_BLUE, 'p1_p3_0_0': COLOR_WHITE, 'p2_p3_0_0': COLOR_RED}
+    const DEFAULT_DOWN_WHITE = {'p1_p3_0_2': COLOR_BLUE, 'p2_p3_0_2': COLOR_RED}
+    const DEFAULT_DOWN_RED = {'p1_p3_0_2': COLOR_WHITE, 'p2_p3_0_2': COLOR_BLUE}
+    const DEFAULT_DOWN_BLUE = {'p1_p3_0_2': COLOR_RED, 'p2_p3_0_2': COLOR_WHITE}
+
+    // 画一个着色单位，一个着色单位代表一个块（中心块、棱块或角块）的一面
+    // p0 p1 p2 三点定义一个面的三个顶点位置（单位坐标）
+    // i 代表要着色的坐标，从 (0, 0) 到 (2, 2)
+    const drawUnit = (ctx, width, [x0, y0], [x1, y1], [x2, y2], [ix, iy], color, ignore) => {
+        ctx.beginPath()
+
+        ctx.fillStyle = color + (ignore ? '44' : '')
+        ctx.moveTo(
+            width * (x0 + (x1 - x0) / 3 * ix + (x2 - x0) / 3 * iy),
+            width * (y0 + (y1 - y0) / 3 * ix + (y2 - y0) / 3 * iy))
+        ctx.lineTo(
+            width * (x0 + (x1 - x0) / 3 * (ix + 1) + (x2 - x0) / 3 * iy),
+            width * (y0 + (y1 - y0) / 3 * (ix + 1) + (y2 - y0) / 3 * iy))
+        ctx.lineTo(
+            width * (x0 + (x1 - x0) / 3 * (ix + 1) + (x2 - x0) / 3 * (iy + 1)),
+            width * (y0 + (y1 - y0) / 3 * (ix + 1) + (y2 - y0) / 3 * (iy + 1)))
+        ctx.lineTo(
+            width * (x0 + (x1 - x0) / 3 * ix + (x2 - x0) / 3 * (iy + 1)),
+            width * (y0 + (y1 - y0) / 3 * ix + (y2 - y0) / 3 * (iy + 1)))
+        ctx.lineTo(
+            width * (x0 + (x1 - x0) / 3 * ix + (x2 - x0) / 3 * iy),
+            width * (y0 + (y1 - y0) / 3 * ix + (y2 - y0) / 3 * iy))
+        ctx.fill()
+
+        ctx.lineWidth = 0.6
+        ctx.strokeStyle = '#444444' + (ignore ? '33' : '')
+        ctx.stroke()
+    }
+
+    // 生成两个列表的组合
+    // permute(['a', 'b'], ['c', 'd']) === [['a', c'], ['a', 'd'], ['b', 'c'], ['b', 'd']]
+    const permute = (arr1, arr2) => {
+        const result = []
+        for (const i1 in arr1) {
+            for (const i2 in arr2) {
+                result.push([arr1[i1], arr2[i2]])
+            }
+        }
+        return result
+    }
+
+    // 画一个f示例图
+    const drawFDemo = (canvasId, colorMap, ignore = false) => {
+        const canvas = document.getElementById(canvasId)
+        const ctx = canvas.getContext('2d')
+
+        const p0 = [0.70, 0.31]
+        const p1 = [0.01, 0.25]
+        const p2 = [0.99, 0.11]
+        const p3 = [0.70, 0.99]
+
+        const _colorMap = {...DEFAULT_COLOR_MAP, ...colorMap}
+
+        permute([0, 1, 2], [0, 1, 2]).forEach(([ix, iy]) => {
+            drawUnit(ctx, CANVAS_WIDTH, p0, p1, p2, [ix, iy], _colorMap[`p1_p2_${ix}_${iy}`] || COLOR_GRAY, ignore)
+            drawUnit(ctx, CANVAS_WIDTH, p0, p1, p3, [ix, iy], _colorMap[`p1_p3_${ix}_${iy}`] || COLOR_GRAY, ignore)
+            drawUnit(ctx, CANVAS_WIDTH, p0, p2, p3, [ix, iy], _colorMap[`p2_p3_${ix}_${iy}`] || COLOR_GRAY, ignore)
+        })
+    }
+
+    const cornerList = [
+        {name: 'up-white', colorMap: DEFAULT_UP_WHITE},
+        {name: 'up-red', colorMap: DEFAULT_UP_RED},
+        {name: 'up-blue', colorMap: DEFAULT_UP_BLUE},
+        {name: 'down-white', colorMap: DEFAULT_DOWN_WHITE},
+        {name: 'down-red', colorMap: DEFAULT_DOWN_RED},
+        {name: 'down-blue', colorMap: DEFAULT_DOWN_BLUE},
+    ]
+
+    const sameEdgeList = [
+        {name: 'same-1', colorMap: {'p1_p2_1_0': COLOR_BLUE, 'p1_p3_1_0': COLOR_RED}},
+        {name: 'same-2', colorMap: {'p1_p2_2_1': COLOR_BLUE}},
+        {name: 'same-3', colorMap: {'p1_p2_1_2': COLOR_BLUE}},
+        {name: 'same-4', colorMap: {'p1_p2_0_1': COLOR_BLUE, 'p2_p3_1_0': COLOR_RED}},
+        {name: 'same-5', colorMap: {'p1_p3_0_1': COLOR_BLUE, 'p2_p3_0_1': COLOR_RED}},
+    ]
+
+    const diffEdgeList = [
+        {name: 'diff-1', colorMap: {'p1_p2_1_0': COLOR_RED, 'p1_p3_1_0': COLOR_BLUE}},
+        {name: 'diff-2', colorMap: {'p1_p2_2_1': COLOR_RED}},
+        {name: 'diff-3', colorMap: {'p1_p2_1_2': COLOR_RED}},
+        {name: 'diff-4', colorMap: {'p1_p2_0_1': COLOR_RED, 'p2_p3_1_0': COLOR_BLUE}},
+        {name: 'diff-5', colorMap: {'p1_p3_0_1': COLOR_RED, 'p2_p3_0_1': COLOR_BLUE}},
+    ]
+
+    const createElementWithAttrs = (tag, attrs) => {
+        const dom = document.createElement(tag)
+        attrs.forEach(([key, val]) => dom.setAttribute(key, val))
+        return dom
+    }
+
+    const appendChildren = (dom, children) => {
+        children.forEach((child) => {
+            dom.appendChild(child)
+        })
+        return dom
+    }
+
+    const generateTable = (containerId) => cornerList.forEach(({name}) => {
+        // 动态生成f2l表
+        /**
+         * <td rowspan="2">
+         *     <canvas width="100" height="100" id="up-white"></canvas>
+         *     <div class="formula-parent">
+         *         <div id="up-white-formula" class="formula">
+         *         </div>
+         *     </div>
+         * </td>
+         */
+        // 生成示例及同色型态
+        document.getElementById('container').appendChild(appendChildren(
+            createElementWithAttrs('tr', []),
+            [
+                appendChildren(
+                    createElementWithAttrs('td', [['rowspan', 2]]),
+                    [
+                        createElementWithAttrs('canvas', [['width', '100px'], ['height', '100px'], ['id', name]]),
+                    ]
+                ),
+                ...permute(cornerList, sameEdgeList).map(([cornerItem, edgeItem]) => appendChildren(
+                    createElementWithAttrs('td', [['rowspan', 2]]), [],
+                    [
+                        createElementWithAttrs('canvas', [['width', '100px'], ['height', '100px'], ['id', name]]),
+                        createElementWithAttrs('div', [['class', 'formula-parent']]).appendChild(
+                            createElementWithAttrs('div', [['id', `${cornerItem.name}-${edgeItem.name}-formula`], ['class', 'formula']])
+                        ),
+                    ]
+                ))
+            ],
+        ))
+
+        // 生成异色型态
+        document.getElementById('container').appendChild(appendChildren(
+            createElementWithAttrs('tr', []),
+            [
+                ...permute(cornerList, sameEdgeList).map(([cornerItem, edgeItem]) => appendChildren(
+                    createElementWithAttrs('td', [['rowspan', 2]]), [],
+                    [
+                        createElementWithAttrs('canvas', [['width', '100px'], ['height', '100px'], ['id', name]]),
+                        createElementWithAttrs('div', [['class', 'formula-parent']]).appendChild(
+                            createElementWithAttrs('div', [['id', `${cornerItem.name}-${edgeItem.name}-formula`], ['class', 'formula']])
+                        ),
+                    ]
+                ))
+            ],
+        ))
+    })
+
+    const renderTable = () => {
+        cornerList.forEach(({name, colorMap}) => {
+            // 画左侧的角块示意图
+            drawFDemo(name, colorMap)
+
+            // 画角块对应的十种棱块型态
+            sameEdgeList.forEach((edgeItem) => {
+                drawFDemo(`${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap})
+            })
+            diffEdgeList.forEach((edgeItem) => {
+                drawFDemo(`${name}-${edgeItem.name}`, {...colorMap, ...edgeItem.colorMap})
+            })
+        })
+    }
+
+    renderTable()
+
+    const setFormula = (divId, formula) => {
+        document.getElementById(divId).innerText = formula
+    }
+    setFormula('up-white-same-1-formula', "RUR'U'\nRU")
+
+</script>
+</body>
+</html>
