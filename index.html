@@ -206,21 +206,21 @@
     }
 
     const setFormula = (divId, formula) => {
-        document.getElementById(divId).innerText = formula
+        document.getElementById(divId).innerHTML = formula
     }
 
     const renderFormula = () => {
         const formulaMap = [
             {
                 name: 'up-white', formulas: {
-                    'same': ["F'U2F\nRU'2R'\nU2RU'R\n*", "U2RUR'\nURU'R'\n*", "URU'2R'\nURU'R'", "RU'2R'\nU'RUR'", "RUR'U2R\nRUR'\n*"],
+                    'same': ["U(RU'R'U')\n(RU'R'U)\n(RU'R')\n*\nF'U2F\nRU'2R'\nU2RU'R", "U2RUR'\nURU'R'\n*", "URU'2R'\nURU'R'", "RU'2R'\nU'RUR'", "RUR'U2R\nRUR'\n*"],
                     'diff': ["y'R'U2RU\nR'U'R", "y'U'R'U2R\nU'R'UR", "y'U2R'U'R\nU'R'UR\n*", "RU2R'\ny'R'U2R\nU'2R'UR\n*", "RU'R'Uy'R'UR"],
                 }
             },
             {
                 name: 'up-blue', formulas: {
-                    'same': ["F'UF\nU2RUR'\n*", "U'RU'2R'\nU2RU'R'", "U'RUR'\nU2RU'R'\n*", "URU'R'", "U'RU'R'\nU2RU'R'"],
-                    'diff': ["y'RURU'\nR'U2RU'2R'UR\n*", "y'R'U'R", "y'UR'U'R\nU'R'U'R", "U'RU'2R'\ny'R'U'R\n*", "U'RUR'Uy'R'U'R"],
+                    'same': ["(lU)\n(rU'r'U')\nl'\n**\nF'UF\nU2RUR'\n", "U'RU'2R'\nU2RU'R'", "U'RUR'\nU2RU'R'\n*", "URU'R'", "U'RU'R'\nU2RU'R'"],
+                    'diff': ["y'RURU'\nR'U2RU'2R'UR\n*", "y'R'U'R", "y'UR'U'R\nU'R'U'R", "U'RU'2R'\ny'R'U'R\n*", "U'RUR'U\ny'R'U'R"],
                 }
             },
             {
@@ -249,10 +249,18 @@
             }
         ]
         formulaMap.forEach(({name, formulas}) => {
-                formulas.same.forEach((formula, idx) => setFormula(`${name}-same-${idx + 1}-formula`, formula))
-                formulas.diff.forEach((formula, idx) => setFormula(`${name}-diff-${idx + 1}-formula`, formula))
-            }
-        )
+            const renderFormula = (formula) => (formula.includes('**')
+                ? ('<span style="color: red">' + formula.split('\n**\n')[0].split('\n').join('<br>') + '</span>'
+                    + '<br>'
+                    + '<span style="color: #ccc">' + formula.split('\n**\n')[1].split('\n').join('<br>') +  '</span>')
+                : formula.includes('*') && !formula.endsWith('*')
+                ? (formula.split('\n*\n')[0].split('\n').join('<br>')
+                    + '<br>'
+                    + '<span style="color: #ccc">' + formula.split('\n*\n')[1].split('\n').join('<br>') +  '</span>')
+                : formula.split('\n').join('<br>'))
+            formulas.same.forEach((formula, idx) => setFormula(`${name}-same-${idx + 1}-formula`, renderFormula(formula)))
+            formulas.diff.forEach((formula, idx) => setFormula(`${name}-diff-${idx + 1}-formula`, renderFormula(formula)))
+        })
     }
 
     const main = () => {
